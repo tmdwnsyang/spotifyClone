@@ -1,0 +1,109 @@
+nav{
+    background-color: var(--nav-color);
+    display: flex;
+    flex-flow: column;         /* menu, playlist, and others all in columns */
+    min-width: 240px;
+    width: 250px;
+    overflow-y: auto;
+}
+.logo-wrapper{
+    display: flex;
+    justify-content: start;
+    padding: var(--padding-md-sm) var(--padding-md-lg);
+}
+nav .logo-wrapper svg  {
+    width:70%;
+    color: white;
+    padding: var(--padding-md) 0;
+    
+}
+
+/* Remove default padding left and turn off text decor */
+ul{
+    padding-left: 0;
+    text-decoration: none;
+}
+nav li{
+    display: flex;
+    justify-content: center;
+}
+
+nav li a{
+    display: flex;
+    width: 100%;
+    padding: var(--padding-sm) var(--padding-md-lg);
+    align-items: center;
+    text-decoration: none;
+    color: var(--static-font-color);
+    
+    font-size: 0.7em;
+}
+
+/* The text next to svg icons in the nav */
+.nav-big-lists{
+    padding: 0 var(--padding-md-lg);
+    height: 40px;
+    font-size:medium;
+    font-weight: var(--font-weight-bold);
+    gap: var(--padding-md);         /* This gap is applied within the child,
+                                       and it creates space between its children.
+                                       In this project, it creates space between
+                                       the svg icons and the texts in the nav bar
+                                     */
+
+}
+
+
+li a span{
+    flex-grow: 1;     /* Keeps proportional inline. Its (only) sibling is the
+                         svg wrapper, whose parent is a display flex. We give 
+                         flex-grow attribute to only on span, so that the span takes up the rest of the space by expanding towards the max width. */
+}
+
+.playlist-container{
+    padding: var(--padding-md) 0;
+    flex-grow: 1;     /* We give flex-grow value of 1 to the child element of nav 
+                         which is a display flex: column. Because other siblings
+                         generally need to be fixed in where they are at, this
+                         is the only element within nav that will have to grow.
+                         And it doesn't necessarily have to be 1, it can be
+                         any number, as long as other children do not have 
+                         the same property with some value. */
+}
+
+.corner-container{
+    padding: var(--padding-md-lg) 0;
+}
+
+
+/* contains the icons next to the span in nav */
+a .svg-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24px;
+    width: 24px;
+}
+
+a svg{
+    /* background-color: white; */
+    fill :var(--static-font-color);         /* Colors the SVG color :) */
+    width: 24px;
+    height: 24px;
+}
+
+/* //!All the hover whitening text effects */
+.nav-big-lists:hover svg, .nav-big-lists:hover, .banner a > span:hover
+, .navigation-btn svg:hover, button{
+    transition: 0.5s;
+    fill: white;
+    color: white;
+    cursor: pointer;                        /* When hovering, this will 
+                                              activate the hand cursor. */
+    font-size: large;
+}
+/* Fading back transition (return to original color) */
+.nav-big-lists svg, .nav-big-lists, .banner a > span
+, .navigation-btn svg{
+    transition: 0.5s;
+}

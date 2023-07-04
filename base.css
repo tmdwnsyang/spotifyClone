@@ -1,0 +1,70 @@
+@font-face{
+    font-family: 'circular-bold-spaced';
+    src: url('fonts/circular_bold_spaced.woff2');
+}
+
+*{
+    font-family: circular-bold-spaced;
+    margin: 0;  /* Reset all margins */
+}
+
+body{
+    margin: 0;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+
+    --padding-sm: 0.5rem;
+    --padding-md-sm: 0.75rem;
+    --padding-md: 1rem;
+    --padding-md-lg: 1.5rem;
+    --padding-lg: 3rem;   
+    
+    --margin-sm: 0.5rem;
+    --margin-md-sm: 0.75rem;
+    --margin-md: 1rem;
+    --margin-lg: 3rem;   
+
+    --nav-color: black;
+    --main-bg-color: #1a1a1a;
+    --banner-color: rgb(18,18,18);
+    --static-font-color: #a7a7a7;
+
+    height: 100vh;              /* in percentages */
+    width: auto;
+    overflow: hidden;
+
+    --font-weight-bold: 800;
+ 
+    display: flex;              /* Row by default */
+}
+
+
+main{
+    padding:  0;
+
+    flex-grow:1;                /* Note that the parent of main is body, which
+                                   is using display flex. That means if we 
+                                   use flex-grow of 1, then the main will the 
+                                   remaining (horizontal) space available that
+                                   is not occupied by the sibling flex element.
+                                   Nav is the sibling flex element with 20% 
+                                   width space occupation. */
+    background-color: var(--main-bg-color);
+    display: flex;
+    flex-flow: column ;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    opacity: 0.55;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(46, 46, 46);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(109, 109, 109);
+    opacity: 0.5;
+}

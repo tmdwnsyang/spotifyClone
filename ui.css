@@ -1,0 +1,193 @@
+
+.banner{
+    white-space: nowrap;                /* This prevents children spans from 
+                                           wrapping, as it can be visually
+                                           unappealing when zoomed in. */
+    min-height:65px;
+    background-color: var(--banner-color);
+    display: flex;
+    align-items: center;                /* Center span items vertically at banner */
+    justify-content: space-between;
+}
+
+.banner a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--static-font-color);
+    font-size:var(--font-weight-bold);
+}
+
+.navigation-btn{
+    border: 0;
+    border-radius: 50%;  /* It was emphasized in class that 50% makes a 
+                            square circle. And hot damn, it really does! */
+    height: 100%;
+    padding: 7%;
+    display: inline-block;              /* Button is an inline, but to 
+                                           adjust its height, we need to
+                                           change its display to 
+                                           inline-block */
+    background-color: black;
+}
+
+.navigation-wrapper{
+    min-width: 100px;                     
+    justify-content: space-between;     /* Parent is a display flex.
+                                          This allows placing some space 
+                                          between the navigation buttons */
+}
+
+.menu-wrapper, .navigation-wrapper{
+    display: flex;
+    padding:  0 var(--padding-md-lg);
+}
+
+/* Selects all span except the span in the sign-in button. 
+   On a side note, I'm super happy that I'm finally putting 
+   this selector into use.  */
+main .banner a > span, section > span{
+    display: flex;
+    padding: var(--padding-sm) var(--padding-md);
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--static-font-color);
+    font-size:medium;
+}
+.sign-in-btn{
+    border-radius: 500px;
+    padding: 13px 25px;
+    max-width: 7em;
+    font-size: 1em;
+    border: 0;            /* gets rid of the border it comes with */
+}
+ 
+.sign-in-btn > span{
+    color: black ;
+}
+
+/* **Banner ends here */
+
+/* **Main page from here */
+
+
+
+.main-page-wrapper {
+    flex-grow: 1;
+    padding: 0 var(--padding-md-lg) var(--padding-md-lg)var(--padding-md-lg);
+    display: flex;
+    flex-flow: column;
+    overflow: auto;
+    background-image: linear-gradient(rgb(34, 34, 34), rgb(18, 18, 18));
+    /* For the gradience effect */
+}
+
+
+.main-page-wrapper section {
+    display: flex;
+    min-height: 30px;
+    justify-content: space-between;
+    margin: var(--padding-md) 0;
+}
+
+
+.playlist-display-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--padding-md-lg);
+    justify-content: flex-start;
+}
+
+
+.playlist-item {
+    box-sizing: border-box;
+    height: 260px;
+    max-width: 170px;
+    background-color: rgba(24,24,24,255);
+    border-radius: var(--border-radius-sm);
+    padding: var(--padding-md);
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    transition: 0.7s;
+}
+           /* IMPORTANT!! We use position 
+                                   relative for the playlist-item 
+                                   wrapper because one of the child
+                                   element (specifically, play-button) whose position is 
+                                   `absolute` depends on this!  
+                                   This enables the play button to
+                                   be position within the parent
+                                   whose position is relative.*/
+
+.playlist-item > img {
+    border-radius: 2%;
+    box-shadow: 0;
+}
+
+/* This will */
+.playlist-item:hover .play-button{
+    opacity: 1;
+}
+
+.playlist-item:hover{
+    background-color: #302c2c;
+    transition: 0.7s;           /* Note that we use opacity instead of 
+                                   visibility because opacity is not binary
+                                   and allows transition to happen by 
+                                   calculating between two values. Opacity 
+                                   allows any values between 0 ~ 1 whereas
+                                   visibility is just a simple on or off. */
+    cursor: pointer;
+}
+.playlist-item:hover > img{
+    box-shadow:  1px 1px 35px rgb(14, 14, 14); /* black shadow effect when hovering */
+    transition: .7s;
+}
+
+.playlist-item .play-button{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 54%;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    top: 38%;
+    border: none;
+    opacity: 0;
+    transition: 0.3s;           
+}
+
+
+.playlist-item path{
+    color: rgb(213, 213, 213);
+
+}
+
+.playlist-item h2 {
+    color: white;
+    font-weight: 900;
+    font-size: 1rem;
+    padding: var(--padding-md) 0;
+}
+
+
+h1{
+    color:white;
+}
+
+p {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--static-font-color);
+    line-height: 1.5;
+    display: flex;
+    flex-grow: 1;                 /* To fill up the small remaining space */
+}
+
+img{
+    width: 100%;
+}
